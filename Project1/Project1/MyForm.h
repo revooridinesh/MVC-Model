@@ -10,7 +10,6 @@ namespace Project1 {
 	using namespace System::Drawing;
 	using namespace System::IO;
 	
-
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
@@ -29,6 +28,7 @@ namespace Project1 {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
+	
 		~MyForm()
 		{
 			if (components)
@@ -36,6 +36,7 @@ namespace Project1 {
 				delete components;
 			}
 		}
+	
 	private: System::Windows::Forms::Label^  label1;
 	protected:
 	private: System::Windows::Forms::TextBox^  URL_Text;
@@ -63,6 +64,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  Clear_button;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^  chart1;
 	private: System::Windows::Forms::Button^  Plot_Button;
+	private: System::Windows::Forms::Label^  label8;
 
 	private:
 		/// <summary>
@@ -77,9 +79,9 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^  legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^  legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->URL_Text = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -104,6 +106,7 @@ namespace Project1 {
 			this->Clear_button = (gcnew System::Windows::Forms::Button());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->Plot_Button = (gcnew System::Windows::Forms::Button());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -315,17 +318,17 @@ namespace Project1 {
 			// 
 			// chart1
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chart1->Legends->Add(legend1);
+			chartArea2->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chart1->Legends->Add(legend2);
 			this->chart1->Location = System::Drawing::Point(562, 75);
 			this->chart1->Name = L"chart1";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series1->Legend = L"Legend1";
-			series1->Name = L"Count";
-			this->chart1->Series->Add(series1);
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Count";
+			this->chart1->Series->Add(series2);
 			this->chart1->Size = System::Drawing::Size(727, 524);
 			this->chart1->TabIndex = 23;
 			this->chart1->Text = L"chart1";
@@ -340,11 +343,25 @@ namespace Project1 {
 			this->Plot_Button->UseVisualStyleBackColor = true;
 			this->Plot_Button->Click += gcnew System::EventHandler(this, &MyForm::Plot_Button_Click);
 			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft NeoGothic", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(4, 416);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(222, 80);
+			this->label8->TabIndex = 25;
+			this->label8->Text = L"While editing please make sure that you\r\n enter numbers in  <number,number>\r\nform"
+				L"at and there shouldnt be any letters \r\n(including white space) other than  \r\nnum"
+				L"ber and comma";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1301, 601);
+			this->ClientSize = System::Drawing::Size(1301, 618);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->Plot_Button);
 			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->Clear_button);
@@ -370,6 +387,7 @@ namespace Project1 {
 			this->Controls->Add(this->URL_Text);
 			this->Controls->Add(this->label1);
 			this->Name = L"MyForm";
+			this->RightToLeftLayout = true;
 			this->Text = L"Controller                                                                     Mo"
 				L"del View Controller Model                                                       "
 				L"          View         ";
@@ -380,19 +398,37 @@ namespace Project1 {
 
 		}
 #pragma endregion
+private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {}
+private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {}
+private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {}
+private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {}
 
 		String^ strfilename;
 		String^ gedfilename;
 		int flag = 0;
+		int Load_F = 0;
+private: System::String^ F_date(String^ strfilename) {
+					 int Index;
+					 Index = strfilename->IndexOf('.');
+					 String^ date;
+					 date = Convert::ToString(DateTime::Now);
+					 date = date->Replace('/', '-');
+					 date = date->Replace(':', '-');
+					 date = date->Replace(' ', '_');
+					 strfilename = strfilename->Insert(Index, String::Concat(" ", date));
+					 strfilename = strfilename->Insert(Index - 4, "_Edited_");
+					 return strfilename;
 
-private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
-	}
-private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
-private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
-private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
+private: System::Void URL_Error() {
+							  
+			 MessageBox::Show("Select a File by clicking Select File button");
+			 Energy_Text->Clear();
+			 Count_Text->Clear();
+			 textBox1->Clear();
+			 textBox2->Clear();
+}
+
 
 private: System::Void Select_File_Click(System::Object^  sender, System::EventArgs^  e) {
 
@@ -422,9 +458,7 @@ private: System::Void Modify_Click(System::Object^  sender, System::EventArgs^  
 			 //Checks whether a file is selected or not
 			 if (URL_Text->TextLength == 0)
 			 {
-				 MessageBox::Show("Select a File by clicking Select File button");
-				 Energy_Text->Clear();
-				 Count_Text->Clear();
+				 URL_Error();
 			 }
 			 else
 			 {
@@ -457,15 +491,7 @@ private: System::Void Modify_Click(System::Object^  sender, System::EventArgs^  
 						 }
 
 						 // Adding date and time to Editing File name
-
-						 Index = strfilename->IndexOf('.');
-						 String^ date;
-						 date = Convert::ToString(DateTime::Now);
-						 date = date->Replace('/', '-');
-						 date = date->Replace(':', '-');
-						 date = date->Replace(' ', '_');
-						 edfilename = strfilename->Insert(Index, String::Concat(" ", date));
-						 edfilename = edfilename->Insert(Index - 4, "_Edited_");
+						 edfilename = F_date(strfilename);
 						 StreamWriter^ sw = gcnew StreamWriter(edfilename);
 
 						 //Loops through the data files and looks for a match, if there is a match updates it
@@ -510,6 +536,9 @@ private: System::Void Modify_Click(System::Object^  sender, System::EventArgs^  
 						 Console::WriteLine("The file could not be read:");
 						 Console::WriteLine(e->Message);
 						 MessageBox::Show("INVALID Input Values");
+						 Energy_Text->Clear();
+						 Count_Text->Clear();
+
 					 }
 				 }
 			 }
@@ -528,9 +557,7 @@ private: System::Void Add_button_Click(System::Object^  sender, System::EventArg
 			 //Validates whether a file is selected or not
 			 if (URL_Text->TextLength == 0)
 			 {
-				 MessageBox::Show("Select a File by clicking Select File button");
-				textBox1->Clear();
-				 textBox2->Clear();
+				 URL_Error();
 			 }
 			 else
 			 {
@@ -561,14 +588,7 @@ private: System::Void Add_button_Click(System::Object^  sender, System::EventArg
 						 }
 
 						 //Naming the File name with Current Date and Time
-						 Index = strfilename->IndexOf('.');
-						 String^ date;
-						 date = Convert::ToString(DateTime::Now);
-						 date = date->Replace('/', '-');
-						 date = date->Replace(':', '-');
-						 date = date->Replace(' ', '_');
-						 edfilename = strfilename->Insert(Index, String::Concat(" ", date));
-						 edfilename = edfilename->Insert(Index - 4, "_Edited_");
+						 edfilename = F_date(strfilename);
 						 StreamWriter^ sw = gcnew StreamWriter(edfilename);
 
 						 String^ line;
@@ -648,6 +668,8 @@ private: System::Void Add_button_Click(System::Object^  sender, System::EventArg
 						 Console::WriteLine("The file could not be read:");
 						 Console::WriteLine(e->Message);
 						 MessageBox::Show("INVALID Input Values");
+						 textBox1->Clear();
+						 textBox2->Clear();
 
 					 }
 				 }
@@ -666,10 +688,7 @@ private: System::Void Delete_Button_Click(System::Object^  sender, System::Event
 			 //Checks whether a file is selected or not
 			 if (URL_Text->TextLength == 0)
 			 {
-				 MessageBox::Show("Select a File by clicking Select File button");
-				 //And clears the data from textboxes
-				 textBox1->Clear();
-				 textBox2->Clear();
+				URL_Error();
 			 }
 			 else
 			 {
@@ -700,14 +719,7 @@ private: System::Void Delete_Button_Click(System::Object^  sender, System::Event
 						 }
 
 						 //Naming the File name with Current Date and Time
-						 Index = strfilename->IndexOf('.');
-						 String^ date;
-						 date = Convert::ToString(DateTime::Now);
-						 date = date->Replace('/', '-');
-						 date = date->Replace(':', '-');
-						 date = date->Replace(' ', '_');
-						 edfilename = strfilename->Insert(Index, String::Concat(" ", date));
-						 edfilename = edfilename->Insert(Index - 4, "_Edited_");
+						 edfilename = F_date(strfilename);
 						 StreamWriter^ sw = gcnew StreamWriter(edfilename);
 
 						 String^ line;
@@ -753,6 +765,8 @@ private: System::Void Delete_Button_Click(System::Object^  sender, System::Event
 					 catch (...)
 					 {
 						 MessageBox::Show("INVALID Input Values");
+						 textBox1->Clear();
+						 textBox2->Clear();
 					 }
 				 }
 			 }
@@ -760,9 +774,11 @@ private: System::Void Delete_Button_Click(System::Object^  sender, System::Event
 
 private: System::Void Load_Button_Click(System::Object^  sender, System::EventArgs^  e) {
 			 
+			 
 			 try
 			 {
-				 richTextBox1->Text = File::ReadAllText(gedfilename);;
+				 richTextBox1->Text = File::ReadAllText(gedfilename);
+				 Load_F = 1;
 			 }
 			 catch (...)
 			 {
@@ -798,39 +814,45 @@ private: System::Void Search_button_Click(System::Object^  sender, System::Event
 			 if (!var)
 			 {
 				 MessageBox::Show("NO Match Found");
+				 Search_Text->Clear();
 			 }
 }
 
 private: System::Void update_button_Click(System::Object^  sender, System::EventArgs^  e) {
-			 int Index;
-			 try{
-				 //Saves the file from richtextbox by replacing the existing file
-				 StreamWriter^ swa;
-				 if (flag == 1)
-				 {
-					 swa = gcnew StreamWriter(gedfilename);
-					 }
-				 else
-				 {
-					 Index = strfilename->IndexOf('.');
-					 String^ date;
-					 date = Convert::ToString(DateTime::Now);
-					 date = date->Replace('/', '-');
-					 date = date->Replace(':', '-');
-					 date = date->Replace(' ', '_');
-					 gedfilename = strfilename->Insert(Index, String::Concat(" ", date));
-					 gedfilename = gedfilename->Insert(Index - 4, "_Edited_");
-					 swa = gcnew StreamWriter(gedfilename);
-					 flag = 1;
-				 }
-				 swa->Write(richTextBox1->Text);
-				 swa->Close();
-				 MessageBox::Show("File Saved");
-
-			 }
-			 catch (...)
+			 if (Load_F == 1 && richTextBox1->TextLength >2)
 			 {
-				 MessageBox::Show("Pease Select a File");
+				 try{
+					 //Saves the file from richtextbox by replacing the existing file
+					 StreamWriter^ swa;
+					 if (flag == 1 )
+					 {
+						 swa = gcnew StreamWriter(gedfilename);
+						 swa->Write(richTextBox1->Text);
+						 swa->Close();
+						 MessageBox::Show("File Saved");
+					 }
+					 else
+					 {
+						 String^ edfilename;
+						 edfilename = F_date(strfilename);
+						 swa = gcnew StreamWriter(edfilename);
+						 swa->Write(richTextBox1->Text);
+						 swa->Close();
+						 MessageBox::Show("File Saved");
+						 flag = 1;
+						 gedfilename = edfilename;
+
+
+					 }
+				 }
+				 catch (...)
+				 {
+					 MessageBox::Show("File Write Failed");
+				 }
+			 }
+			 else
+			 {
+				 MessageBox::Show("Please Load the File");
 			 }
 }
 
@@ -839,7 +861,6 @@ private: System::Void Plot_Button_Click(System::Object^  sender, System::EventAr
 			     int Count;
 				 int Index;
 				 double Enerygy;
-				 //Clears the chart values before every plot
 				 this->chart1->Series["Count"]->Points->Clear();
 				 
 				 try
@@ -854,7 +875,9 @@ private: System::Void Plot_Button_Click(System::Object^  sender, System::EventAr
 						 Enerygy = Convert::ToDouble(line->Substring(0, Index));
 						 Count = Convert::ToInt16(line->Substring(Index + 1));
 						 this->chart1->Series["Count"]->Points->AddXY(Enerygy, Count);
-						 					 
+						 
+
+						 
 					 }
 					 sr->Close();
 				 }
