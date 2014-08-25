@@ -802,12 +802,31 @@ private: System::Void Search_button_Click(System::Object^  sender, System::Event
 }
 
 private: System::Void update_button_Click(System::Object^  sender, System::EventArgs^  e) {
+			 int Index;
 			 try{
 				 //Saves the file from richtextbox by replacing the existing file
-				 StreamWriter^ swa = gcnew StreamWriter(gedfilename);
+				 StreamWriter^ swa;
+				 if (flag == 1)
+				 {
+					 swa = gcnew StreamWriter(gedfilename);
+					 }
+				 else
+				 {
+					 Index = strfilename->IndexOf('.');
+					 String^ date;
+					 date = Convert::ToString(DateTime::Now);
+					 date = date->Replace('/', '-');
+					 date = date->Replace(':', '-');
+					 date = date->Replace(' ', '_');
+					 gedfilename = strfilename->Insert(Index, String::Concat(" ", date));
+					 gedfilename = gedfilename->Insert(Index - 4, "_Edited_");
+					 swa = gcnew StreamWriter(gedfilename);
+					 flag = 1;
+				 }
 				 swa->Write(richTextBox1->Text);
 				 swa->Close();
 				 MessageBox::Show("File Saved");
+
 			 }
 			 catch (...)
 			 {
@@ -820,6 +839,8 @@ private: System::Void Plot_Button_Click(System::Object^  sender, System::EventAr
 			     int Count;
 				 int Index;
 				 double Enerygy;
+				 //Clears the chart values before every plot
+				 this->chart1->Series["Count"]->Points->Clear();
 				 
 				 try
 				 {
@@ -833,7 +854,7 @@ private: System::Void Plot_Button_Click(System::Object^  sender, System::EventAr
 						 Enerygy = Convert::ToDouble(line->Substring(0, Index));
 						 Count = Convert::ToInt16(line->Substring(Index + 1));
 						 this->chart1->Series["Count"]->Points->AddXY(Enerygy, Count);
-						 
+						 					 
 					 }
 					 sr->Close();
 				 }
