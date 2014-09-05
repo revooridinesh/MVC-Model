@@ -10,9 +10,10 @@ Project->Properties->Configuration Properties -> Linker-> Advanced -> Entry Poin
 
 MyForm.cpp has the Main function
 
-Issue with the APP:
+Issue with the App:
 I have tested the app extensively with different sets of data emphasising the app functionalty.
+
 I observed the following issue till now
-The space provided in the app, where we can edit the file manually accepts only numbers and comma in <number,number> format and for all combinations App fails and we need to select the file again. It doest accept white spaces too.
+The space provided in the App, where we can edit the file manually accepts only numbers and comma in (number,number) format and for all combinations App fails and we need to select the file again. It doesnt accept white spaces too.
 
 
